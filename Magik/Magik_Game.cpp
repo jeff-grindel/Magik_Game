@@ -6,12 +6,13 @@
 int score = 0;
 int max_score = 0;
 
-std::string intro = "Welcome to Ancient Greece! \nYou are a local magikian in the coastal town of Dion. \nYou have a bunch of citizens that wish to seek your services.\nCitizen1 -> Citizen10\nOr Exit to be done for the day.";
+std::string intro = "Welcome to Ancient Greece! \nYou are a local magician in the coastal town of Dion. \nYou have citizens wishing to seek your special services.\nWhen prompted enter which Citizen you would like to help (Citizen1->Citizen10)\n(IE: >Citizen1 to help the first, Citizen2 to help the second, etc...)\nOr Exit to be done for the day.\n";
 std::string what_cit = "What citizen would you like to help first?";
 std::string what = "\nWhat would you like to do? (Curse Number)";
-std::string fail = "You tried to conjure a lead tablet but the wrong curse was used";
+std::string fail = "\nYou tried to conjure a lead tablet but the wrong spell was used.\nThe Citizen runs out of the room.";
 std::string tab_created = "\n\nSUCCESSFULLY CREATED LEAD TABLET\n";
-std::string backslash = "\n/////////////////////////////////////////////";
+std::string backslash = "\n////////////////////////////////////////////////////////////////////////////////";
+std::string underline = "\n________________________________________________________________________________";
 
 std::string cit_1 = "\nAn angry citizen comes to you, yelling and cursing about his chariot team \nloosing the races. He informs you he wants a curse againts the racer Abas of the Chariot Team White";
 std::string cit_1_name = "Abas";
@@ -183,7 +184,7 @@ std::string defense() {
 
 
 int main () {
-	std::cout << intro << std::endl;
+	std::cout << intro + underline << std::endl;
 	
 	std::cout << what_cit << std::endl;
 	
@@ -231,11 +232,11 @@ int main () {
 		else {
 			std::cout << "\nThe Citizen you wish to help is not avaliable." << std::endl;
 		}
-		std::cout << "\nEnter next citizen you would like to help." << std::endl;
+		std::cout << underline + "\nEnter next citizen you would like to help." << std::endl;
 		std::cin >> citizen;
 	}
 
-	std::cout << "You are done providing services for the day." << std::endl;
+	std::cout << "\nYou are done providing services for the day." << std::endl;
 
 	std::cout << backslash << "\nYour Scrore: " << score << "/" << max_score*10 << "\n" << backslash << std::endl;
 }
