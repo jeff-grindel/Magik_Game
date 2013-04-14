@@ -16,3 +16,17 @@ Name
 
 5. Defensive Legal Curse
 City Name
+
+
+Answers:
+
+Citizen1: 1  : White : Abas
+Citizen2: 7  : Thyrsos
+Citizen3: 10 : Eucles
+Citizen4: 
+Citizen5: 
+Citizen6: 6  : Phanessa : Callisto
+Citizen7: 
+Citizen8: 
+Citizen9: 
+Citizen10: 11 : 

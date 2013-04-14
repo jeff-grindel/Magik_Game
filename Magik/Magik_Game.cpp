@@ -6,7 +6,8 @@
 int score = 0;
 int max_score = 0;
 
-std::string intro = "Welcome to Ancient Greece! \nYou are a local magician in the coastal town of Dion. \nYou have citizens wishing to seek your special services.\nWhen prompted enter which Citizen you would like to help (Citizen1->Citizen10)\n(IE: >Citizen1 to help the first, Citizen2 to help the second, etc...)\nOr Exit to be done for the day.\n";
+std::string intro = "Welcome to Ancient Greece! \nYou are a local magician in the coastal town of Dion. \nYou have citizens wishing to seek your special services." 
+	"\nWhen prompted enter which Citizen you would like to help (Citizen1->Citizen10)\n(IE: >Citizen1 to help the first, Citizen2 to help the second, etc...)\nOr Exit to be done for the day.\n";
 std::string what_cit = "What citizen would you like to help first?";
 std::string what = "\nWhat would you like to do? (Curse Number)";
 std::string fail = "\nYou tried to conjure a lead tablet but the wrong spell was used.\nThe Citizen runs out of the room.";
@@ -34,7 +35,7 @@ std::string cit_4 = "\n";
 
 std::string cit_5 = "\n";
 
-std::string cit_6 = "\nA poor man comes hobeling in, he seeks the hand of a beautiful women named Callisto. He also tells you the name of her mother, Phanessa";
+std::string cit_6 = "\nA poor man comes hobbling in, he seeks the hand of a beautiful women named Callisto. He also tells you the name of her mother, Phanessa";
 std::string cit_6_name = "Callisto";
 std::string cit_6_mom_name = "Phanessa";
 std::string cit_6_happy = "\nThe poor man is gratefull that he know will be with his love FOREVER! He pays you what he can for your services.";
@@ -51,18 +52,18 @@ std::string cit_10_happy = "\nThe politician is very pleased with the results an
 std::string cit_10_mad = "\nThe politician is upset that you made a mistake and says that you will pay for wasting his time.";
 
 int set_correct_spell(std::string cit) {
-	if (cit == "Citizen1")
+	if (cit == "Citizen1")			//Correct
 		return 1;
-	else if (cit == "Citizen2")
-		return 3;
-	else if (cit == "Citizen3")
-		return 4;
+	else if (cit == "Citizen2")		//Correct
+		return 7;
+	else if (cit == "Citizen3")		//Correct
+		return 10;
 	else if (cit == "Citizen4")
 		return 0;
 	else if (cit == "Citizen5")
 		return 0;
-	else if (cit == "Citizen6")
-		return 2;
+	else if (cit == "Citizen6")		//Correct
+		return 6;
 	else if (cit == "Citizen7")
 		return 0;
 	else if (cit == "Citizen8")
@@ -70,7 +71,7 @@ int set_correct_spell(std::string cit) {
 	else if (cit == "Citizen9")
 		return 0;
 	else if (cit == "Citizen10")
-		return 7;
+		return 11;
 	else 
 		return -1;
 }
@@ -161,7 +162,7 @@ std::string revenge() {
 std::string tongue() {
 	std::string name = "";
 	
-	std::cout << "\nWhat is the name of the politicians enemy?";
+	std::cout << "\nWhat is the name of the politicians enemy?\n";
 	std::cin >> name;
 
 	std::string curse = "\nThe tongue of " + name + ". The tongues of the advocates of " + name;
@@ -211,18 +212,18 @@ int main () {
 			std::cin >> choice;
 			if(correct_spell == choice) {
 				if(choice == 1) {
-					std::cout << chariot_Races() << std::endl;
+					std::cout << chariot_Races() << std::endl;		//Citizen1
 				}
-				else if (choice == 2) {
+				else if (choice == 6) {
 					std::cout << bind() << std::endl;
 				}
-				else if (choice == 3) {
+				else if (choice == 7) {
 					std::cout << revenge() << std::endl;
 				}
-				else if (choice == 4) {
+				else if (choice == 10) {
 					std::cout << tongue() << std::endl;
 				}
-				else if (choice == 7) {
+				else if (choice == 11) {
 					std::cout << defense() << std::endl;
 				}
 			}
