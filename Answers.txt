@@ -1,0 +1,12 @@
+Answers:
+
+Citizen1: 1   : White : Abas
+Citizen2: 7   : Thyrsos
+Citizen3: 10  : Eucles
+Citizen4: 9   :	Patroclus : Strabo
+Citizen5: 13  : Harmon : Galene : Oinophilos
+Citizen6: 6   : Phanessa : Callisto
+Citizen7: 16  : rosebay : salt
+Citizen8: 5   : 
+Citizen9: 21  : 
+Citizen10: 11 : 

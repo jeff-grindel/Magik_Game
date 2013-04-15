@@ -1,12 +1,16 @@
 #include	<iostream>
 #include	<string>
+#include <windows.h>
+#include <conio.h>
+
+
 
 int score = 0;
 int max_score = 0;
 
 std::string intro = "Welcome to Ancient Greece! \nYou are a local magician in the coastal town of Dion. \nYou have citizens wishing to seek your special services." 
 	"\nWhen prompted enter which Citizen you would like to help (Citizen1->Citizen10)\n(IE: >Citizen1 to help the first, Citizen2 to help the second, etc...)\nOr Exit to be done for the day.\n";
-std::string what_cit = "What citizen would you like to help first?";
+std::string what_cit = "What citizen would you like to help first? (Or Exit)";
 std::string what = "\nWhat would you like to do? (Curse Number)";
 std::string fail = "\nYou tried to conjure a lead tablet but the wrong spell was used.\nThe Citizen runs out of the room.";
 std::string tab_created = "\n\nSUCCESSFULLY CREATED LEAD TABLET\n";
@@ -209,7 +213,7 @@ std::string seperate_men() {
 
 	std::string curse = "\nI turn away " + man1 + " from " + man2 + ", from his face, from his eyes, from his mouth, from his breast, from his soul, from his belly, from his penis, from his anus, from his entire body, I turn away " + man1 + "from " + man2 + ".\n";
 
-	if (man1 == cit_4_name1 && man2 == cit_4_name2) {
+	if ((man1 == cit_4_name1 && man2 == cit_4_name2) || (man2 == cit_4_name1 && man1 == cit_4_name2)) {
 		score = score + 10;
 		return backslash + curse + backslash + tab_created + cit_4_happy;
 	}
@@ -292,7 +296,7 @@ int main () {
 	std::cout << what_cit << std::endl;
 	
 	std::string citizen = "";
-
+	std::string citizen2 = "";
 	std::cin >> citizen;
 
 	for(;citizen != "Exit";) {
@@ -308,12 +312,13 @@ int main () {
 
 			std::cout << what << std::endl;
 
-			int choice = 0;
+			int choice;
 
 			std::cin >> choice;
-			if(correct_spell == choice) {
+				
+			if(choice != 0 && correct_spell == choice) {
 				if(choice == 1) {
-					std::cout << chariot_Races() << std::endl;		//Citizen1
+					std::cout << chariot_Races() << std::endl;		
 				}
 				else if (choice == 5) {
 					std::cout << dice() << std::endl;
@@ -347,7 +352,7 @@ int main () {
 				std::cout << fail << std::endl;
 		}
 		else {
-			std::cout << "\nThe Citizen you wish to help is not avaliable." << std::endl;
+			std::cout << "\n\nThe Citizen you wish to help is not avaliable." << std::endl;
 		}
 		std::cout << underline + "\nEnter next citizen you would like to help. (Or Exit)" << std::endl;
 		std::cin >> citizen;
@@ -356,6 +361,7 @@ int main () {
 	std::cout << "\nYou are done providing services for the day." << std::endl;
 
 	std::cout << backslash << "\nYour Scrore: " << score << "/" << max_score*10 << "\n" << backslash << std::endl;
+	Sleep(10000);
 }
 
 
