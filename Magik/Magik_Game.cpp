@@ -1,5 +1,3 @@
-//This is the best font
-//Possible add scoring system
 #include	<iostream>
 #include	<string>
 
@@ -54,12 +52,14 @@ std::string cit_6_mad = "\nThe man notices that you entered the name of his moth
 std::string cit_7 = "\nA women comes to you and explains that her neighbor's house is infested with fleas and she is worried that they are going to get into her place. She is seeking a way to keep her living space flea free.";
 std::string cit_7_first = "rosebay";
 std::string cit_7_second = "salt";
-std::string cit_7_happy = "\nHappy";
-std::string cit_7_mad = "\nMad";
+std::string cit_7_happy = "\nThe woman is very thankful that her place will not be infested. She pays you and leaves.";
+std::string cit_7_mad = "\nThe woman takes the mixture, but you gave her the wrong mixture. The mixture you gave her will actaully attract fleas.";
 
-std::string cit_8 = "\n";
+std::string cit_8 = "\nA man comes to explaining how recently he has been down on his luck in Dice. He is seeking advice on how to turn his luck around and start winning.";
+std::string cit_8_happy = "\nThe man thanks you for telling him how to become more lucky. He pays and leaves.";
 
-std::string cit_9 = "\n";
+std::string cit_9 = "\nAn elderly women comes in coughing violently. She is seeking for something that will help her get over her terrible cough.";
+std::string cit_9_happy = "\nShe takes the parchment and leaves after paying you.";
 
 std::string cit_10 = "\nA politican comes in, he is affraid that being in his power has resulted in many enemies and someone which he beileves put curses on him. He seeks a defensive spell to thwart any curses against him.";
 std::string cit_10_happy = "\nThe politician is very pleased with the results and thanks you with payment.";
@@ -78,12 +78,12 @@ int set_correct_spell(std::string cit) {
 		return 13;
 	else if (cit == "Citizen6")		//Correct
 		return 6;
-	else if (cit == "Citizen7")	
+	else if (cit == "Citizen7")		//Correct
 		return 16;
-	else if (cit == "Citizen8")
-		return 0;
+	else if (cit == "Citizen8")		//Correct	
+		return 5;
 	else if (cit == "Citizen9")
-		return 0;
+		return 21;
 	else if (cit == "Citizen10")	//Correct
 		return 11;
 	else 
@@ -270,6 +270,22 @@ std::string flea() {
 	}
 }
 
+std::string dice() {
+	std::string recipe = "\nYou tell the man to whisper the following saying into his hands while holding the dice"
+		"\n\nLet none be my equal, for I am THERTHENITHOR EROTHORTHIS DOLOTHOR, and I throw what I will!\n";
+
+	score = score + 10;
+	return backslash + recipe + backslash + cit_8_happy;
+}
+
+std::string coughing() {
+	std::string recipe = "\nIn black ink you write on hyene parchment the following. \n"
+						"TEUTHRAIO THRAITEU THRAITO THABARBAORI LIKRALIRETA deliver, Citizen9,  from the cough that holds her fast. \n";
+
+	score = score + 10;
+	return backslash + recipe + backslash + cit_9_happy;
+}
+
 int main () {
 	std::cout << intro + underline << std::endl;
 	
@@ -299,6 +315,9 @@ int main () {
 				if(choice == 1) {
 					std::cout << chariot_Races() << std::endl;		//Citizen1
 				}
+				else if (choice == 5) {
+					std::cout << dice() << std::endl;
+				}
 				else if (choice == 6) {
 					std::cout << bind() << std::endl;
 				}
@@ -319,6 +338,9 @@ int main () {
 				}
 				else if (choice == 16) {
 					std::cout << flea() << std::endl;
+				}
+				else if (choice == 21) {
+					std::cout << coughing() << std::endl;
 				}
 			}
 			else
