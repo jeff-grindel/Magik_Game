@@ -26,7 +26,7 @@ std::string cit_1_mad = "\nThe citizen notices that you did not curse the right 
 std::string cit_2 = "\nAn angry women comes to you. She speaks of her husband, Thyrsos, cheating on her with another women and wishes to curse him to never marry again or find happiness.";
 std::string cit_2_name = "Thyrsos";
 std::string cit_2_happy = "\nThe angry women thanks you for your help in cursing her husband, and pays you for your services";
-std::string cit_2_mad = "\nThe citizen notices that you did not curse the right man, she throws the lead tablet in your face and storms out";
+std::string cit_2_mad = "\nThe citizen notices that you did not curse the right man. Still in her jealous rage, she kicks you to death.";
 
 std::string cit_3 = "\nA politician comes in, he asks you to curse his opponent, Eucles.";
 std::string cit_3_name = "Eucles";
@@ -44,13 +44,13 @@ std::string cit_5_name1 = "Harmon";
 std::string cit_5_name2 = "Galene";
 std::string cit_5_name3 = "Oinophilos";
 std::string cit_5_happy = "\nThe citizen is very happy that you were able to create this tablet for him and pays you.";
-std::string cit_5_mad = "\nThe citizen notices that the names on the tablet are incorrect and leaves without paying you.";
+std::string cit_5_mad = "\nThe citizen notices that the names on the tablet are incorrect. He tackles you to the ground, knocking over a dangerous concoction  you made earlier. You both burst in to flames.";
 
-std::string cit_6 = "\nA poor man comes hobbling in. He is seeking the hand of a beautiful women named Callisto. He also tells you the name of her mother is Phanessa";
+std::string cit_6 = "\nA frail man comes hobbling in with a cane. He is seeking the hand of a beautiful women named Callisto. He also tells you the name of her mother is Phanessa";
 std::string cit_6_name = "Callisto";
 std::string cit_6_mom_name = "Phanessa";
 std::string cit_6_happy = "\nThe poor man is grateful that he know will be with his love FOREVER! He pays you what he can for your services.";
-std::string cit_6_mad = "\nThe man notices that you entered the name of his mother instead and wishes death upon you.";
+std::string cit_6_mad = "\nThe man notices that you entered the name of his own mother instead. Surprisingly, he has a very good swing with his cane and is able to beat you to death.";
 
 std::string cit_7 = "\nA women comes to you and explains that her neighbor's house is infested with fleas and she is worried that they are going to get into her place. She is seeking a way to keep her living space flea free.";
 std::string cit_7_first = "rosebay";
@@ -66,7 +66,6 @@ std::string cit_9_happy = "\nShe takes the parchment and leaves after paying you
 
 std::string cit_10 = "\nA politician comes in, he is afraid that being in his power has resulted in many enemies and someone which he believes put curses on him. He seeks a defensive spell to thwart any curses against him.";
 std::string cit_10_happy = "\nThe politician is very pleased with the results and thanks you with payment.";
-std::string cit_10_mad = "\nThe politician is upset that you made a mistake and says that you will pay for wasting his time.";
 
 int set_correct_spell(std::string cit) {
 	if (cit == "Citizen1")			//Correct
@@ -198,7 +197,7 @@ bool tongue() {
 	}
 	else{
 		std::cout <<  backslash + curse + backslash + tab_created + cit_3_mad << std::endl;
-		return false;
+		return true;
 	}
 }
 
@@ -229,7 +228,7 @@ bool seperate_men() {
 	}
 	else {
 		std::cout <<  backslash + curse + backslash + tab_created + cit_4_mad << std::endl;
-		return false;
+		return true;
 	}
 }
 
@@ -285,7 +284,7 @@ bool flea() {
 	}
 	else {
 		std::cout <<  backslash + recipe + backslash + cit_7_mad << std::endl;
-		return false;
+		return true;
 	}
 }
 
@@ -398,10 +397,14 @@ int main () {
 		if(citizen == "Exit")
 			break;
 
-		std::cout << "\n\nTry Again? (Y/N)" << std::endl;
-		std::cin >> again;
 
-		std::cout << std::endl;
+
+		for(;again != "N" || again != "Y";){
+			std::cout << "\nTry Again? (Y/N)" << std::endl;
+			std::cin >> again;
+			if(again == "N" || again == "Y")
+				break;
+		}
 
 		if (again == "N") {
 			try_again = true;
